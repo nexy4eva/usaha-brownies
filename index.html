@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ChocoBrownies.id - Brownies Lumer Jakarta Barat</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #fff5f5;
+            color: #333;
+        }
+        header {
+            background-color: #b23a48;
+            color: white;
+            padding: 30px 20px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2em;
+        }
+        header p {
+            font-size: 1.2em;
+            margin-top: 10px;
+        }
+        section {
+            padding: 30px 20px;
+        }
+        h2 {
+            color: #b23a48;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+        .menu, .favorite, .preorder {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        .menu-item, .fav-item, .pre-item {
+            background-color: white;
+            padding: 15px;
+            border-radius: 10px;
+            box-shadow: 0px 3px 6px rgba(0,0,0,0.1);
+            width: 300px;
+            text-align: center;
+        }
+        .menu-item img, .fav-item img, .pre-item img {
+            width: 100%;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 10px;
+        }
+        .menu-item h3, .fav-item h3, .pre-item h3 {
+            margin-top: 15px;
+            color: #b23a48;
+        }
+        .menu-item p, .fav-item p, .pre-item p {
+            font-weight: bold;
+            margin: 5px 0;
+        }
+        .menu-item ul, .fav-item ul, .pre-item ul {
+            text-align: left;
+            padding-left: 20px;
+        }
+        .contact {
+            background-color: #fbe1e6;
+            padding: 20px;
+            border-radius: 10px;
+            text-align: center;
+            margin-top: 30px;
+        }
+        .contact a {
+            display: inline-block;
+            margin: 10px;
+            padding: 10px 20px;
+            background-color: #b23a48;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #b23a48;
+            color: white;
+            margin-top: 20px;
+        }
+        @media (max-width: 768px) {
+            .menu, .favorite, .preorder {
+                flex-direction: column;
+                align-items: center;
+            }
+            .menu-item, .fav-item, .pre-item {
+                width: 90%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>ChocoBrownies.id</h1>
+        <p>Brownies Lumer & Lezat – Dekat RS Pelni, Jakarta Barat</p>
+    </header>
+
+    <!-- Menu Regular -->
+    <section>
+        <h2>Daftar Menu Brownies</h2>
+        <div class="menu">
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/300x200?text=Brownies+Mini" alt="Brownies Mini">
+                <h3>Brownies Mini</h3>
+                <p>Rp10.000 – Rp15.000</p>
+                <ul>
+                    <li>Brownies Mini Cokelat</li>
+                    <li>Brownies Mini Keju</li>
+                    <li>Brownies Mini Meses</li>
+                </ul>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/300x200?text=Brownies+Cup" alt="Brownies Cup">
+                <h3>Brownies Cup</h3>
+                <p>Rp15.000 – Rp25.000</p>
+                <ul>
+                    <li>Brownies Cup Cokelat / Keju / Oreo</li>
+                    <li>Brownies Cup Jumbo Mix Topping</li>
+                </ul>
+            </div>
+            <div class="menu-item">
+                <img src="https://via.placeholder.com/300x200?text=Brownies+Loyang" alt="Brownies Loyang">
+                <h3>Brownies Slice & Loyang</h3>
+                <p>Rp20.000 – Rp45.000</p>
+                <ul>
+                    <li>Slice Jumbo Cokelat / Keju / Choco Chips</li>
+                    <li>Loyang Kecil & Medium (10×10 – 12×12 cm)</li>
+                    <li>Loyang Premium (15×15 cm): Nutella / Cream Cheese / Almond</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Favorite -->
+    <section>
+        <h2>Menu Favorite</h2>
+        <div class="favorite">
+            <div class="fav-item">
+                <img src="https://via.placeholder.com/300x200?text=Brownies+Nutella" alt="Brownies Nutella">
+                <h3>Brownies Nutella</h3>
+                <p>Rp45.000</p>
+                <ul>
+                    <li>Brownies Premium dengan Nutella Lumer</li>
+                    <li>Loyang 15×15 cm</li>
+                    <li>Best Seller</li>
+                </ul>
+            </div>
+            <div class="fav-item">
+                <img src="https://via.placeholder.com/300x200?text=Brownies+Cheese" alt="Brownies Cream Cheese">
+                <h3>Brownies Cream Cheese</h3>
+                <p>Rp45.000</p>
+                <ul>
+                    <li>Brownies Premium dengan Cream Cheese Lumer</li>
+                    <li>Loyang 15×15 cm</li>
+                    <li>Favorit Pelanggan</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Menu Pre-Order -->
+    <section>
+        <h2>Pre-Order Brownies</h2>
+        <div class="preorder">
+            <div class="pre-item">
+                <img src="https://via.placeholder.com/300x200?text=Brownies+Custom" alt="Brownies Custom">
+                <h3>Brownies Custom / Kado</h3>
+                <p>Rp50.000 – Rp60.000</p>
+                <ul>
+                    <li>Pre-Order khusus untuk ulang tahun / hampers</li>
+                    <li>Bisa request topping & dekorasi</li>
+                    <li>Dipesan minimal 2 hari sebelum</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact">
+        <h2>Pesan Sekarang</h2>
+        <p>Hubungi kami melalui WhatsApp atau Instagram untuk pemesanan online:</p>
+        <a href="https://wa.me/6281234567890" target="_blank">📱 WhatsApp</a>
+        <a href="https://instagram.com/ChocoBrownies.id" target="_blank">📸 Instagram</a>
+    </section>
+
+    <footer>
+        &copy; 2026 ChocoBrownies.id – Brownies Lumer & Lezat Jakarta Barat
+    </footer>
+</body>
+</html>
