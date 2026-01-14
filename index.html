@@ -1,85 +1,118 @@
 <!DOCTYPE html>
-<html lang="id">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Brownies Pelni Jakarta - UMKM Brownies Lezat</title>
-    <style>
-        body { font-family: Arial, sans-serif; margin: 0; padding: 0; background-color: #f4f4f4; color: #333; }
-        header { background-color: #8B4513; color: white; text-align: center; padding: 20px; }
-        .container { max-width: 800px; margin: 20px auto; padding: 20px; background: white; border-radius: 8px; box-shadow: 0 0 10px rgba(0,0,0,0.1); }
-        h2 { color: #8B4513; }
-        ul { list-style-type: none; padding: 0; }
-        li { margin: 10px 0; padding: 10px; border-bottom: 1px solid #ddd; display: flex; align-items: center; }
-        img { width: 100px; height: auto; margin-right: 15px; border-radius: 5px; }
-        .contact { text-align: center; margin-top: 20px; }
-        a { color: #8B4513; text-decoration: none; }
-        a:hover { text-decoration: underline; }
-    </style>
+<title>CocoaPelni Brownies</title>
+<style>
+body {
+    font-family: Arial;
+    margin: 0;
+    background: #fdf5f0;
+}
+header {
+    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
+    url("https://images.unsplash.com/photo-1606313564200-e75d5e30476c") center/cover;
+    color: white;
+    padding: 80px 20px;
+    text-align: center;
+}
+section {
+    padding: 40px;
+}
+.menu {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 20px;
+}
+.card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+}
+.card img {
+    width: 100%;
+    height: 150px;
+    object-fit: cover;
+}
+.card .content {
+    padding: 15px;
+}
+.price {
+    color: #c45a1a;
+    font-weight: bold;
+}
+.order {
+    background: #4b2c20;
+    color: white;
+    text-align: center;
+    padding: 50px 20px;
+}
+button {
+    background: #c45a1a;
+    color: white;
+    padding: 15px 30px;
+    border: none;
+    font-size: 16px;
+    border-radius: 8px;
+    cursor: pointer;
+}
+</style>
 </head>
+
 <body>
-    <header>
-        <h1>Selamat Datang di Brownies Pelni Jakarta</h1>
-        <p>UMKM Brownies Lezat, Segar, dan Berkualitas Tinggi. Lokasi: Dekat RS. Pelni Jakarta Barat.</p>
-    </header>
-    
-    <div class="container">
-        <h2>Tentang Kami</h2>
-        <p>Kami menyajikan brownies homemade yang dibuat dengan bahan-bahan pilihan, tanpa pengawet. Cocok untuk camilan sehari-hari, hadiah, atau acara spesial. Pesan sekarang dan rasakan kelezatannya!</p>
-        
-        <h2>Daftar Menu Brownies</h2>
-        <ul>
-            <li>
-                <img src="https://images.unsplash.com/photo-1607478900766-efe13248b125?w=100&h=100&fit=crop" alt="Brownies Klasik">
-                <div>
-                    <strong>Brownies Klasik</strong> - Brownies cokelat murni dengan tekstur lembut dan renyah di luar. <em>Harga: Rp 15.000 (ukuran kecil, 10x10 cm)</em>
-                </div>
-            </li>
-            <li>
-                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=100&h=100&fit=crop" alt="Brownies Keju">
-                <div>
-                    <strong>Brownies Keju</strong> - Brownies klasik dengan topping keju cheddar yang meleleh. <em>Harga: Rp 20.000 (ukuran kecil, 10x10 cm)</em>
-                </div>
-            </li>
-            <li>
-                <img src="https://images.unsplash.com/photo-1606312619070-d48b4c652a52?w=100&h=100&fit=crop" alt="Brownies Kacang">
-                <div>
-                    <strong>Brownies Kacang</strong> - Brownies dengan campuran kacang almond dan cokelat chip. <em>Harga: Rp 25.000 (ukuran sedang, 15x15 cm)</em>
-                </div>
-            </li>
-            <li>
-                <img src="https://images.unsplash.com/photo-1578662996442-48f60103fc96?w=100&h=100&fit=crop" alt="Brownies Red Velvet">
-                <div>
-                    <strong>Brownies Red Velvet</strong> - Brownies dengan rasa red velvet yang lembut dan manis. <em>Harga: Rp 30.000 (ukuran sedang, 15x15 cm)</em>
-                </div>
-            </li>
-            <li>
-                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=100&h=100&fit=crop" alt="Brownies Premium Mix">
-                <div>
-                    <strong>Brownies Premium Mix</strong> - Kombinasi brownies cokelat, keju, dan kacang dengan topping stroberi. <em>Harga: Rp 35.000 (ukuran besar, 20x20 cm)</em>
-                </div>
-            </li>
-            <li>
-                <img src="https://images.unsplash.com/photo-1607478900766-efe13248b125?w=100&h=100&fit=crop" alt="Brownies Special Edition">
-                <div>
-                    <strong>Brownies Special Edition</strong> - Brownies dengan rasa matcha hijau dan topping buah segar. <em>Harga: Rp 40.000 (ukuran besar, 20x20 cm)</em>
-                </div>
-            </li>
-            <li>
-                <img src="https://images.unsplash.com/photo-1551024506-0bccd828d307?w=100&h=100&fit=crop" alt="Paket Brownies Family">
-                <div>
-                    <strong>Paket Brownies Family</strong> - Set 4 brownies mini (campuran rasa) dalam kemasan cantik. <em>Harga: Rp 45.000 (cocok untuk hadiah atau keluarga)</em>
-                </div>
-            </li>
-        </ul>
-        
-        <div class="contact">
-            <h2>Pesan Sekarang!</h2>
-            <p>Hubungi kami untuk pemesanan online atau pengiriman:</p>
-            <p><strong>WhatsApp:</strong> <a href="https://wa.me/6281234567890">+62 812-3456-7890</a></p>
-            <p><strong>Instagram:</strong> <a href="https://instagram.com/BrowniesPelniJakarta">@BrowniesPelniJakarta</a></p>
-            <p>Kami siap melayani pesanan Anda dengan cepat dan aman!</p>
-        </div>
-    </div>
-</body>
-</html>
+
+<header>
+<h1>CocoaPelni Brownies</h1>
+<p>Brownies Premium Lumer & Fresh</p>
+<p>Dekat RS Pelni – Jakarta Barat</p>
+</header>
+
+<section>
+<h2>🍫 Menu Favorit</h2>
+
+<div class="menu">
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c3">
+<div class="content">
+Classic Fudge<br><span class="price">Rp15.000</span>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7">
+<div class="content">
+Choco Crunch<br><span class="price">Rp18.000</span>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1599785209707-28a70c0c75d8">
+<div class="content">
+Cheese Brownies<br><span class="price">Rp22.000</span>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51">
+<div class="content">
+Oreo Blast<br><span class="price">Rp25.000</span>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7">
+<div class="content">
+Matcha Brownies<br><span class="price">Rp28.000</span>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c3">
+<div class="content">
+Nutella Lava<br><span class="price">Rp30.000</span>
+</div>
+</div>
+
+<div class="card">
+<img src="https://images.unsplash.com/photo-159
