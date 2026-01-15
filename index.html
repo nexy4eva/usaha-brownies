@@ -3,59 +3,23 @@
 <head>
 <title>CocoaPelni Brownies</title>
 <style>
-body {
-    font-family: Arial;
-    margin: 0;
-    background: #fdf5f0;
+body{font-family:Arial;margin:0;background:#fdf5f0;}
+header{
+background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+url("https://images.unsplash.com/photo-1606313564200-e75d5e30476c") center/cover;
+color:white;text-align:center;padding:80px 20px;
 }
-header {
-    background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)),
-    url("https://images.unsplash.com/photo-1606313564200-e75d5e30476c") center/cover;
-    color: white;
-    padding: 80px 20px;
-    text-align: center;
+.menu{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px;padding:40px;}
+.card{background:white;border-radius:15px;overflow:hidden;box-shadow:0 0 10px rgba(0,0,0,.1);}
+.card img{width:100%;height:160px;object-fit:cover;}
+.content{padding:15px;text-align:center;}
+button{background:#c45a1a;color:white;border:none;padding:10px 15px;border-radius:6px;cursor:pointer;}
+.cart{
+position:fixed;right:0;top:0;width:320px;height:100%;
+background:#4b2c20;color:white;padding:20px;overflow:auto;
 }
-section {
-    padding: 40px;
-}
-.menu {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-    gap: 20px;
-}
-.card {
-    background: white;
-    border-radius: 12px;
-    overflow: hidden;
-    box-shadow: 0 0 10px rgba(0,0,0,0.1);
-}
-.card img {
-    width: 100%;
-    height: 150px;
-    object-fit: cover;
-}
-.card .content {
-    padding: 15px;
-}
-.price {
-    color: #c45a1a;
-    font-weight: bold;
-}
-.order {
-    background: #4b2c20;
-    color: white;
-    text-align: center;
-    padding: 50px 20px;
-}
-button {
-    background: #c45a1a;
-    color: white;
-    padding: 15px 30px;
-    border: none;
-    font-size: 16px;
-    border-radius: 8px;
-    cursor: pointer;
-}
+.cart-item{border-bottom:1px solid #fff;padding:10px 0;}
+.qty{width:40px;}
 </style>
 </head>
 
@@ -63,56 +27,97 @@ button {
 
 <header>
 <h1>CocoaPelni Brownies</h1>
-<p>Brownies Premium Lumer & Fresh</p>
-<p>Dekat RS Pelni – Jakarta Barat</p>
+<p>Brownies Premium – Dekat RS Pelni Jakarta Barat</p>
 </header>
 
-<section>
-<h2>🍫 Menu Favorit</h2>
+<div class="menu" id="menu"></div>
 
-<div class="menu">
+<div class="cart">
+<h2>🛒 Keranjang</h2>
+<div id="cartItems"></div>
+<p>Ongkir: Rp10.000</p>
+<h3 id="total">Total: Rp0</h3>
+<button onclick="checkout()">Pesan via WhatsApp</button>
+</div>
 
+<script>
+const ongkir=10000;
+const products=[
+{name:"Classic Fudge",price:15000,img:"https://images.unsplash.com/photo-1589308078059-be1415eab4c3"},
+{name:"Choco Crunch",price:18000,img:"https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7"},
+{name:"Cheese Brownies",price:22000,img:"https://images.unsplash.com/photo-1599785209707-28a70c0c75d8"},
+{name:"Oreo Blast",price:25000,img:"https://images.unsplash.com/photo-1624353365286-3f8d62daad51"},
+{name:"Matcha Brownies",price:28000,img:"https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7"},
+{name:"Nutella Lava",price:30000,img:"https://images.unsplash.com/photo-1589308078059-be1415eab4c3"},
+{name:"Almond Delight",price:32000,img:"https://images.unsplash.com/photo-1599785209707-28a70c0c75d8"},
+{name:"Box Small",price:35000,img:"https://images.unsplash.com/photo-1624353365286-3f8d62daad51"},
+{name:"Box Medium",price:40000,img:"https://images.unsplash.com/photo-1589308078059-be1415eab4c3"},
+{name:"Box Premium",price:45000,img:"https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7"}
+];
+
+let cart=[];
+
+const menuDiv=document.getElementById("menu");
+products.forEach(p=>{
+menuDiv.innerHTML+=`
 <div class="card">
-<img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c3">
+<img src="${p.img}">
 <div class="content">
-Classic Fudge<br><span class="price">Rp15.000</span>
-</div>
-</div>
+<b>${p.name}</b><br>
+Rp${p.price.toLocaleString()}<br><br>
+<button onclick="add('${p.name}',${p.price})">Tambah</button>
+</div></div>`;
+});
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7">
-<div class="content">
-Choco Crunch<br><span class="price">Rp18.000</span>
-</div>
-</div>
+function add(name,price){
+let item=cart.find(i=>i.name==name);
+if(item){item.qty++;}
+else{cart.push({name,price,qty:1});}
+render();
+}
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1599785209707-28a70c0c75d8">
-<div class="content">
-Cheese Brownies<br><span class="price">Rp22.000</span>
-</div>
-</div>
+function remove(name){
+cart=cart.filter(i=>i.name!=name);
+render();
+}
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1624353365286-3f8d62daad51">
-<div class="content">
-Oreo Blast<br><span class="price">Rp25.000</span>
-</div>
-</div>
+function render(){
+let html=""; let total=0;
+cart.forEach(i=>{
+let sub=i.price*i.qty;
+total+=sub;
+html+=`
+<div class="cart-item">
+${i.name}<br>
+Rp${i.price.toLocaleString()} x 
+<input class="qty" type="number" value="${i.qty}" min="1"
+onchange="updateQty('${i.name}',this.value)">
+= Rp${sub.toLocaleString()}<br>
+<button onclick="remove('${i.name}')">Hapus</button>
+</div>`;
+});
+document.getElementById("cartItems").innerHTML=html;
+document.getElementById("total").innerText="Total: Rp"+(total+ongkir).toLocaleString();
+}
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1614707267537-b85aaf00c4b7">
-<div class="content">
-Matcha Brownies<br><span class="price">Rp28.000</span>
-</div>
-</div>
+function updateQty(name,val){
+let item=cart.find(i=>i.name==name);
+item.qty=parseInt(val);
+render();
+}
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-1589308078059-be1415eab4c3">
-<div class="content">
-Nutella Lava<br><span class="price">Rp30.000</span>
-</div>
-</div>
+function checkout(){
+let msg="Halo CocoaPelni, saya mau pesan:%0A";
+let total=0;
+cart.forEach(i=>{
+msg+=`- ${i.name} x${i.qty} = Rp${i.price*i.qty}%0A`;
+total+=i.price*i.qty;
+});
+msg+=`Ongkir: Rp${ongkir}%0A`;
+msg+=`Total: Rp${total+ongkir}`;
+window.open("https://wa.me/6281234567890?text="+msg);
+}
+</script>
 
-<div class="card">
-<img src="https://images.unsplash.com/photo-159
+</body>
+</html>
